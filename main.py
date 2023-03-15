@@ -12,7 +12,7 @@ def generate_figure_equation():
     pass
 
 
-def generate_plus_expr(lvl):
+def generate_sum_expr(lvl):
     n1, n2 = 0, 0
     if lvl == 1:
         n1, n2 = random.randint(1, 10), random.randint(1, 10)
@@ -23,7 +23,7 @@ def generate_plus_expr(lvl):
     return f"{n1} + {n2}"
 
 
-def generate_minus_expr(lvl):
+def generate_sub_expr(lvl):
     n1, n2 = 0, 0
     if lvl == 1:
         n1, n2 = random.randint(6, 10), random.randint(1, 6)
@@ -34,7 +34,7 @@ def generate_minus_expr(lvl):
     return f"{n1} - {n2}"
 
 
-def generate_multiple_expr(lvl):
+def generate_mul_expr(lvl):
     n1, n2 = 0, 0
     if lvl == 1:
         n1, n2 = random.randint(1, 10), random.randint(1, 10)
@@ -43,7 +43,7 @@ def generate_multiple_expr(lvl):
     return f"{n1} * {n2}"
 
 
-def generate_divide_expr(lvl):
+def generate_div_expr(lvl):
     n1, n2 = 0, 0
     if lvl == 1:
         n1 = random.randint(5, 100)
@@ -57,13 +57,13 @@ def generate_divide_expr(lvl):
 def generate_expression(level, operator="+"):
     match operator:
         case "+":
-            return generate_plus_expr(level)
+            return generate_sum_expr(level)
         case "-":
-            return generate_minus_expr(level)
+            return generate_sub_expr(level)
         case "*":
-            return generate_multiple_expr(level)
+            return generate_mul_expr(level)
         case "//":
-            return generate_divide_expr(level)
+            return generate_div_expr(level)
         case "fig":
             return generate_figure_equation()
 
@@ -101,4 +101,6 @@ def practise(u_age):
 
 if __name__ == '__main__':
     user_age = get_age()
-    print(practise(user_age))
+    e = practise(user_age)
+    print(e)
+    print(f"Ответ: {eval(e)}")
